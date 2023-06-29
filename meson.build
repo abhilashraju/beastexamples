@@ -9,10 +9,6 @@ project(
   ])
 openssl_dep = dependency('openssl', version: '>=1.1.1')
 boost_dep = dependency('boost')
-executable(
-  'file_body',
-  'filebody.cpp',
-  #include_directories: chai_client_includes,
-  dependencies:[openssl_dep,boost_dep],
-  install: true,
-  install_dir: get_option('bindir'))
+subdir('filebodyserver')
+subdir('filebodyget')
+subdir('httpproxy')
